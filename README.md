@@ -5,7 +5,7 @@ A Python daemon to query sensor data from the Telldus Tellstick Duo and forward 
 # Prerequisites
 - A [Tellstick duo](http://telldus.com/produkt/tellstick-duo/) or an equivalent product that works with TelldusCore
 - The TelldusCore Python library : `pip install tellcore-py`
-- Currently, only Python 2.7 
+- Currently, only Python 2.7 is supported
 
 # Running the thing
 - Edit sensor_mapping.py to suit your sensor setup
