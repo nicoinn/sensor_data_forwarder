@@ -66,7 +66,7 @@ class EmonCMS_Reporter(Reporter):
         self.node = node
         
         #Check if everything works
-        from Reporters import Dummy_record()
+        from Reporters import Dummy_record
         dummy = Dummy_record()
         
         t = self.commit_one(dummy)
