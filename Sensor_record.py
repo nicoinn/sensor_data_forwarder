@@ -1,13 +1,12 @@
 class Sensor_record(object):
-    
-    from sensor_mapping import sensor_mapping
-    
+        
     def __init__(self, sensor):
         import tellcore.constants as td_cst
         
         def get_custom_name(sensor):
             try :
-                name = self.__sensor_mapping[(sensor.protocol,sensor.model,int(sensor.id))]
+                from sensor_mapping import sensor_mapping
+                name = sensor_mapping[(sensor.protocol,sensor.model,int(sensor.id))]
                 self.mapped = True
                 return name
             
