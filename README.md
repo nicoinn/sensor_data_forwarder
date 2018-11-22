@@ -1,6 +1,5 @@
-# Tellduscore Forwarded
-A Python daemon to query sensor data from the Telldus Tellstick Duo and forward to EmonCMS and more
-
+# Sensor data Forwarded
+A small Python daemon to query and forward sensor data accross various platform, currently focused on reading from Telldus Tellstick Duo and forwarding to EmonCMS. More platforms will eventually come :)
 
 # Prerequisites
 - A [Tellstick duo](http://telldus.com/produkt/tellstick-duo/) or an equivalent product that works with TelldusCore
