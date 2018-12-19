@@ -1,4 +1,25 @@
+import json
+
+
 class Sensor_record(object):
+
+    def __init__(selfself,sensor):
+        return
+
+    def get_timestamp(self):
+        return None
+
+    def get_name(self):
+        return ""
+
+    def get_data(self):
+        return {}
+
+    def __repr__(self):
+        return "Sensor object template"
+
+
+class Telldus_Sensor_record(Sensor_record):
         
     def __init__(self, sensor):
         import tellcore.constants as td_cst
@@ -69,7 +90,7 @@ class Sensor_record(object):
         return outstr 
     
     
-class Dummy_record(Sensor_record):
+class Dummy_record(Telldus_Sensor_record):
         def __init__(self,name="EmonCMS_Reporter_Dummy",Temperature=42,Humidity=42,mapped=True):
             import time
             self.timestamp = int(time.time())
@@ -77,4 +98,28 @@ class Dummy_record(Sensor_record):
             self.mapped = mapped
             self.temperature = Temperature
             self.humidity = Humidity
+
+
+class Sparsnas_Sensor_record(Sensor_record):
+
+    def __init__(self, sensor):
+        self.record = json.loads(sensor)
+        self.mapped = True
+
+    def get_timestamp(self):
+        return self.record["time"]
+
+    def get_name(self):
+        return "Sparnas_ID_{0}".format(self.record["sensorID"])
+
+    def get_data(self):
+        return {x: self.record[x] for x in self.record if x not in ["time","sensorID"]}
+
+    def __repr__(self):
+        return str(self.record)
+
+
+
+
+
 

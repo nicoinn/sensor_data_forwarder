@@ -55,7 +55,7 @@ class EmonCMS_Reporter(Reporter):
     def __init__(self, URL,apikey=None,node=None,only_mapped=True):
         #URL must include port and path up to the emoncms root
         #ex: http://foo.bar:8080/emoncms/
-        
+       
         import time
         from math import floor
         
@@ -70,7 +70,7 @@ class EmonCMS_Reporter(Reporter):
         dummy = Dummy_record()
         
         t = self.commit_one(dummy)
-        
+       
         if (t !=True):
             print "Something is wrong - Cannot continue"
             print t
@@ -112,7 +112,6 @@ class EmonCMS_Reporter(Reporter):
         
         if r=="ok":
             return True
-        
         return "Queried URL: "+ query + "\nResponse from server: " + r
         
 
